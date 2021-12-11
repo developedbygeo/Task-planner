@@ -3,6 +3,7 @@
   border-radius: 1rem;
   border: 1px solid #cbd5e1;
   outline: none;
+  margin-inline: 1rem;
   animation: inputOpen 200ms ease-in-out;
 }
 .inputField:focus {
