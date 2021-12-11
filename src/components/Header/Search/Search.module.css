@@ -1,0 +1,21 @@
+.inputField {
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  animation: inputOpen 200ms ease-in-out;
+}
+.inputField:focus {
+  border: 2px solid #0ea5e9;
+}
+
+@keyframes inputOpen {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
