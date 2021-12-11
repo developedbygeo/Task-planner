@@ -48,7 +48,7 @@ const Nav = ({ onThemeSelection }) => {
       <Button
         onClick={toggleSideHandler}
         title="Toggle menu"
-        additionalClass={styles.cta}
+        additionalClass={(darkTheme && styles.ctaDark) || styles.cta}
       >
         <FontAwesomeIcon icon={faBars} />
       </Button>
@@ -59,12 +59,16 @@ const Nav = ({ onThemeSelection }) => {
             onClick={toggleSearchHandler}
             type="submit"
             title="Search"
-            additionalClass={styles.cta}
+            additionalClass={(darkTheme && styles.ctaDark) || styles.cta}
           >
             <FontAwesomeIcon icon={faSearch} />
           </Button>
         </form>
-        <Button onClick={toggleThemeHandler} title="Toggle dark mode">
+        <Button
+          additionalClass={(darkTheme && styles.ctaDark) || styles.cta}
+          onClick={toggleThemeHandler}
+          title="Toggle dark mode"
+        >
           {darkTheme && <FontAwesomeIcon icon={faToggleOff} />}
           {!darkTheme && <FontAwesomeIcon icon={faToggleOn} />}
         </Button>
