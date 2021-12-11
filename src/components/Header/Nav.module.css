@@ -14,10 +14,18 @@ nav {
   justify-self: flex-start;
 }
 
-.cta {
-  color: #0f172a;
+.cta,
+.ctaDark {
   transition: all 100ms ease-in-out;
 }
-.cta:hover {
+
+.cta {
+  color: #0f172a;
+}
+.ctaDark {
+  color: white;
+}
+.cta:hover,
+.ctaDark:hover {
   color: #0ea5e9;
 }
