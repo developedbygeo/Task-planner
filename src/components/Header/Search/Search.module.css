@@ -1,11 +1,27 @@
 .inputField {
-  padding: 0.5rem 2rem;
+  padding: 0.1rem 3rem;
   border-radius: 1rem;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #0f172a;
   outline: none;
   margin-inline: 1rem;
   animation: inputOpen 200ms ease-in-out;
 }
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+::-moz-placeholder {
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+}
+
 .inputField:focus {
   border: 2px solid #0ea5e9;
 }
