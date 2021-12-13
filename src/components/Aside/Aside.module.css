@@ -1,0 +1,39 @@
+aside {
+  width: 15%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.1fr auto;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  text-align: center;
+  border-radius: 2rem;
+  height: 100%;
+  animation: asideAnimation 500ms ease-in-out;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+}
+.dark {
+  background: #cbd5e1;
+  border-radius: 0;
+  background: #0ea5e9;
+  color: white;
+}
+input {
+  width: 75%;
+}
+
+@keyframes asideAnimation {
+  from {
+    transform: translateX(-100);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
