@@ -1,13 +1,13 @@
 import styles from './Search.module.css';
 
-const Search = ({ className, onChange }) => {
+const Search = ({ className, onChange, placeholder }) => {
   return (
     <>
       <input
         className={`${styles.inputField} ${className ? className : ''}`}
         onChange={onChange}
         type="text"
-        placeholder="What are we looking for?"
+        placeholder={placeholder}
       ></input>
     </>
   );
