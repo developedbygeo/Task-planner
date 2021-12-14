@@ -1,16 +1,26 @@
-import styles from './Aside.module.css';
-import SearchAdd from '../Header/Search/Search';
+import { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import ThemeContext from '../../store/themeContext';
+import Form from '../UI/Form/Form';
 import Card from '../UI/Card/Card';
+import styles from './Aside.module.css';
 
-const Aside = ({ theme, children }) => {
+const Aside = ({ children }) => {
+  const { darkTheme } = useContext(ThemeContext);
+
   return (
-    <aside className={theme ? styles.dark : styles.aside}>
+    <aside className={darkTheme ? styles.dark : styles.aside}>
       <Card className={styles.title}>
         <h3>Current Lists</h3>
       </Card>
-      <Card className={styles.add}>
-        <SearchAdd placeholder={'Looking for a list?'} />
-      </Card>
+      <Form
+        isFieldActive={true}
+        placeholder={`Let's add a list!`}
+        type={'submit'}
+      >
+        <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+      </Form>
       <Card>{children}</Card>
     </aside>
   );
