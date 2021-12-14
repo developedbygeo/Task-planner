@@ -7,25 +7,14 @@ import {
   faToggleOff,
 } from '@fortawesome/free-solid-svg-icons';
 import Button from '../UI/Button/Button';
-import Search from './Search/Search';
+import Search from '../UI/Search/Search';
 import Card from '../UI/Card/Card';
 import styles from './Nav.module.css';
 import ThemeContext from '../../store/themeContext';
 
-const Nav = ({ onThemeSelection }) => {
+const Nav = ({ onAsideEnable }) => {
   const [searchStatus, setsearchStatus] = useState(false);
-  const [asideStatus, setAsideStatus] = useState(false);
-  const [darkThemeEnabled, setDarkThemeEnabled] = useState(false);
-  const { darkTheme } = useContext(ThemeContext);
-
-  // TODO work on the aside (drawer)
-
-  const toggleSideHandler = () => {
-    setsearchStatus((prevState) => {
-      const asideToggle = prevState === false ? true : false;
-      setAsideStatus(asideToggle);
-    });
-  };
+  const ctx = useContext(ThemeContext);
 
   const toggleSearchHandler = (e) => {
     e.preventDefault();
@@ -35,42 +24,37 @@ const Nav = ({ onThemeSelection }) => {
     });
   };
 
-  const toggleThemeHandler = () => {
-    setDarkThemeEnabled((prevState) => {
-      const themeToggle = prevState === false ? true : false;
-      setDarkThemeEnabled(themeToggle);
-    });
-    onThemeSelection(darkThemeEnabled);
-  };
-
   return (
     <nav>
       <Button
-        onClick={toggleSideHandler}
+        onClick={onAsideEnable}
         title="Toggle menu"
-        additionalClass={(darkTheme && styles.ctaDark) || styles.cta}
+        additionalClass={ctx.darkTheme ? styles.ctaDark : styles.cta}
       >
         <FontAwesomeIcon icon={faBars} />
       </Button>
       <Card className={styles.buttons}>
-        <form>
-          {searchStatus && <Search />}
-          <Button
-            onClick={toggleSearchHandler}
-            type="submit"
-            title="Search"
-            additionalClass={(darkTheme && styles.ctaDark) || styles.cta}
-          >
-            <FontAwesomeIcon icon={faSearch} />
-          </Button>
-        </form>
+        {searchStatus && (
+          <Search
+            className={styles.search}
+            placeholder="What are we looking for?"
+          />
+        )}
         <Button
-          additionalClass={(darkTheme && styles.ctaDark) || styles.cta}
-          onClick={toggleThemeHandler}
+          onClick={toggleSearchHandler}
+          type="submit"
+          title="Search"
+          additionalClass={ctx.darkTheme ? styles.ctaDark : styles.cta}
+        >
+          <FontAwesomeIcon icon={faSearch} />
+        </Button>
+        <Button
+          additionalClass={ctx.darkTheme ? styles.ctaDark : styles.cta}
+          onClick={ctx.onThemeChange}
           title="Toggle dark mode"
         >
-          {darkTheme && <FontAwesomeIcon icon={faToggleOff} />}
-          {!darkTheme && <FontAwesomeIcon icon={faToggleOn} />}
+          {ctx.darkTheme && <FontAwesomeIcon icon={faToggleOff} />}
+          {!ctx.darkTheme && <FontAwesomeIcon icon={faToggleOn} />}
         </Button>
       </Card>
     </nav>
