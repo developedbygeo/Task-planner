@@ -1,0 +1,18 @@
+li {
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  background: whitesmoke;
+  border-radius: 2rem;
+  -webkit-box-shadow: 3px 4px 15px -2px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 4px 15px -2px rgba(0, 0, 0, 0.25);
+}
+
+.elementWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.elementWrapper h3 {
+  padding-inline: 1rem;
+}
