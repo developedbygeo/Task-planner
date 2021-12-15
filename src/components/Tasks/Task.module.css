@@ -16,3 +16,6 @@ li {
 .elementWrapper h3 {
   padding-inline: 1rem;
 }
+.elementWrapper h3::first-letter {
+  text-transform: capitalize;
+}
