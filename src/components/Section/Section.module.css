@@ -1,0 +1,17 @@
+section {
+  display: flex;
+  width: auto;
+  height: 100%;
+  background: rgb(253, 251, 251);
+  background: linear-gradient(
+    145deg,
+    rgba(253, 251, 251, 1) 0%,
+    rgba(142, 198, 224, 0.7) 35%,
+    rgba(84, 184, 230, 0.65) 77%,
+    rgba(14, 165, 233, 0.85) 100%
+  );
+}
+
+.dark {
+  background: #2e2e32;
+}
