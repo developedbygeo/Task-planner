@@ -1,0 +1,16 @@
+ul {
+  width: 95%;
+  height: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center;
+  overflow-y: auto;
+  background: transparent;
+}
+
+.ulAsideActive {
+  width: 65%;
+}
