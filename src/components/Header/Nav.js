@@ -29,7 +29,7 @@ const Nav = ({ onAsideEnable }) => {
       <Button
         onClick={onAsideEnable}
         title="Toggle menu"
-        additionalClass={ctx.darkTheme ? styles.ctaDark : styles.cta}
+        className={ctx.darkTheme ? styles.ctaDark : styles.cta}
       >
         <FontAwesomeIcon icon={faBars} />
       </Button>
@@ -44,12 +44,12 @@ const Nav = ({ onAsideEnable }) => {
           onClick={toggleSearchHandler}
           type="submit"
           title="Search"
-          additionalClass={ctx.darkTheme ? styles.ctaDark : styles.cta}
+          className={ctx.darkTheme ? styles.ctaDark : styles.cta}
         >
           <FontAwesomeIcon icon={faSearch} />
         </Button>
         <Button
-          additionalClass={ctx.darkTheme ? styles.ctaDark : styles.cta}
+          className={ctx.darkTheme ? styles.ctaDark : styles.cta}
           onClick={ctx.onThemeChange}
           title="Toggle dark mode"
         >
