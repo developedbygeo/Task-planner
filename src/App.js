@@ -13,6 +13,10 @@ function App() {
     setAsideStatus((prevState) => (prevState === false ? true : false));
   };
 
+  const menuHandler = () => {
+    console.log('Menu enabled');
+  };
+
   return (
     <>
       <Header
@@ -21,7 +25,7 @@ function App() {
       />
       <main className="App">
         {asideStatus && <Aside theme={ctx.darkTheme} />}
-        <Section>
+        <Section onMenuEnable={menuHandler}>
           <TaskList isAsideActive={asideStatus} />
         </Section>
       </main>
