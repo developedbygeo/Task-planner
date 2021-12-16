@@ -13,6 +13,7 @@ aside {
   position: fixed;
   top: 15%;
   left: 0;
+  z-index: 10;
   text-align: center;
   height: 100%;
   animation: asideAnimation 500ms ease-in-out;
