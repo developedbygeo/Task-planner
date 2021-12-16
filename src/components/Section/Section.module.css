@@ -2,6 +2,7 @@ section {
   display: flex;
   width: auto;
   height: 100%;
+  position: relative;
   background: rgb(253, 251, 251);
   background: linear-gradient(
     145deg,
@@ -12,6 +13,43 @@ section {
   );
 }
 
+.add {
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  -webkit-box-shadow: 4px 5px 3px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 5px 3px -1px rgba(0, 0, 0, 0.5);
+  background-size: 200% auto;
+  transition: all 500ms ease-in-out;
+}
+.add:hover {
+  transform: scale(1.2);
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.lightBtn {
+  background-image: linear-gradient(
+    to right,
+    #3087f1 0%,
+    #66dddb 51%,
+    #0e56af 100%
+  );
+}
+.darkBtn {
+  background-image: linear-gradient(
+    to right,
+    #232526 0%,
+    #414345 51%,
+    #232526 100%
+  );
+}
 .dark {
   background: #2e2e32;
 }
