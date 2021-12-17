@@ -1,0 +1,22 @@
+.addTaskForm {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cta {
+  height: 50%;
+  width: 50%;
+  background: red;
+  justify-self: center;
+  border-radius: 2rem;
+  color: white;
+  background: #0b6088;
+  transition: all 200ms ease-in-out;
+}
+
+.cta:hover {
+  background: #0ea5e9;
+}
