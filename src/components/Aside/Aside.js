@@ -15,8 +15,11 @@ const Aside = ({ children }) => {
         <h3>Current Lists</h3>
       </Card>
       <Form
+        className={styles.asideForm}
         isFieldActive={true}
-        placeholder={`Let's add a list!`}
+        formData={[
+          { placeholder: `Let's add a list`, labelStatus: false, label: '' },
+        ]}
         type={'submit'}
       >
         <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
