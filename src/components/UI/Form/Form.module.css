@@ -10,6 +10,11 @@ form input {
   height: 80%;
 }
 
+.search {
+  padding: 0.5rem 3rem;
+  height: 35%;
+}
+
 .flex {
   display: flex;
   flex-direction: column;
