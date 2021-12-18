@@ -7,15 +7,15 @@ const Backdrop = ({ onMenuDisable }) => {
   return <div className={styles.backdrop} onClick={onMenuDisable} />;
 };
 
-const ModalOverlay = ({ children }) => {
+const ModalOverlay = ({ children, className }) => {
   return (
-    <div className={styles.modal}>
+    <div className={`${styles.modal} ${className ? className : null}`}>
       <div className={styles.content}>{children}</div>
     </div>
   );
 };
 
-const Modal = ({ onMenuDisable, children }) => {
+const Modal = ({ onMenuDisable, className, children }) => {
   return (
     <>
       {reactDom.createPortal(
@@ -23,7 +23,7 @@ const Modal = ({ onMenuDisable, children }) => {
         modalCont
       )}
       {reactDom.createPortal(
-        <ModalOverlay>{children}</ModalOverlay>,
+        <ModalOverlay className={className}>{children}</ModalOverlay>,
         modalCont
       )}
     </>
