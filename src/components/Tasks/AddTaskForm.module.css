@@ -7,6 +7,12 @@
   align-items: center;
   justify-items: center;
 }
+
+.dark {
+  background: #3f3f46;
+  color: white;
+}
+
 .addTaskForm button {
   width: 50%;
   margin: auto;
@@ -18,9 +24,15 @@
   right: 3%;
   z-index: 11;
 }
-
 .ctaSec:hover {
   color: #0b6088;
+}
+
+.ctaSecDark {
+  color: white;
+}
+.ctaSecDark:hover {
+  color: #0ea5e9;
 }
 
 .cta {
@@ -34,5 +46,12 @@
 }
 
 .cta:hover {
+  background: #0ea5e9;
+}
+.ctaDark {
+  background: #157baa;
+}
+
+.ctaDark:hover {
   background: #0ea5e9;
 }
