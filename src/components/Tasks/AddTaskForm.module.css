@@ -19,10 +19,13 @@
   z-index: 11;
 }
 
+.ctaSec:hover {
+  color: #0b6088;
+}
+
 .cta {
   height: 50%;
   width: 50%;
-  background: red;
   justify-self: center;
   border-radius: 2rem;
   color: white;
