@@ -3,8 +3,8 @@ import reactDom from 'react-dom';
 
 const modalCont = document.querySelector('#overlay');
 
-const Backdrop = (props) => {
-  return <div className={styles.backdrop} />;
+const Backdrop = ({ onMenuDisable }) => {
+  return <div className={styles.backdrop} onClick={onMenuDisable} />;
 };
 
 const ModalOverlay = ({ children }) => {
@@ -15,10 +15,13 @@ const ModalOverlay = ({ children }) => {
   );
 };
 
-const Modal = ({ children }) => {
+const Modal = ({ onMenuDisable, children }) => {
   return (
     <>
-      {reactDom.createPortal(<Backdrop />, modalCont)}
+      {reactDom.createPortal(
+        <Backdrop onMenuDisable={onMenuDisable} />,
+        modalCont
+      )}
       {reactDom.createPortal(
         <ModalOverlay>{children}</ModalOverlay>,
         modalCont
