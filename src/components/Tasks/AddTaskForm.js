@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import ThemeContext from '../../store/themeContext';
 import Modal from '../UI/Modal/Modal';
 import Form from '../UI/Form/Form';
 import Button from '../UI/Button/Button';
@@ -8,18 +10,20 @@ import styles from './AddTaskForm.module.css';
 // TODO change bg based on context;
 
 const AddTaskForm = ({ onMenuDisable }) => {
+  const { darkTheme } = useContext(ThemeContext);
+
   return (
-    <Modal onMenuDisable={onMenuDisable}>
+    <Modal onMenuDisable={onMenuDisable} className={darkTheme && styles.dark}>
       <Button
         onClick={onMenuDisable}
         title="Close menu"
-        className={styles.ctaSec}
+        className={`${styles.ctaSec} ${darkTheme ? styles.ctaSecDark : null}`}
       >
         <FontAwesomeIcon icon={faTimes} />
       </Button>
       <Form
         className={styles.addTaskForm}
-        buttonClassName={styles.cta}
+        buttonClassName={`${styles.cta} ${darkTheme ? styles.ctaDark : null}`}
         isFieldActive={true}
         formData={[
           {
