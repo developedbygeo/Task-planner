@@ -4,7 +4,8 @@ import Header from './components/Header/Header';
 import Aside from './components/Aside/Aside';
 import Section from './components/Section/Section';
 import TaskList from './components/Tasks/TaskList';
-import AddTaskForm from './components/Tasks/AddTaskForm';
+// import AddTaskForm from './components/Tasks/AddTaskForm';
+import AddTask from './components/Tasks/AddTask';
 
 function App() {
   const ctx = useContext(ThemeContext);
@@ -23,15 +24,30 @@ function App() {
     setMenuEnabled(false);
   };
 
+  const addListHandler = (data) => {
+    console.log(data);
+  };
+
+  const addTaskHandler = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
-      {isMenuEnabled && <AddTaskForm onMenuDisable={menuDisableHandler} />}
+      {isMenuEnabled && (
+        <AddTask
+          onAddTask={addTaskHandler}
+          onMenuDisable={menuDisableHandler}
+        />
+      )}
       <Header
         onThemeSelection={ctx.onThemeChange}
         onAsideEnable={asideHandler}
       />
       <main className="App">
-        {asideStatus && <Aside theme={ctx.darkTheme} />}
+        {asideStatus && (
+          <Aside onAddList={addListHandler} theme={ctx.darkTheme} />
+        )}
         <Section onMenuEnable={menuEnableHandler}>
           <TaskList isAsideActive={asideStatus} />
         </Section>
