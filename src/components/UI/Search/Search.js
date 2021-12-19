@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './Search.module.css';
 
 const Search = React.forwardRef(
-  ({ className, onChange, placeholder, id }, ref) => {
+  ({ className, onChange, placeholder, id, required }, ref) => {
     return (
       <>
         <input
+          required={required}
           ref={ref}
           className={`${styles.inputField} ${className ? className : ''}`}
           onChange={onChange}
