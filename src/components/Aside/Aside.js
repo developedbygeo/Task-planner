@@ -1,12 +1,10 @@
 import { useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import ThemeContext from '../../store/themeContext';
-import Form from '../UI/Form/Form';
+import AsideForm from './AsideForm';
 import Card from '../UI/Card/Card';
 import styles from './Aside.module.css';
 
-const Aside = ({ children }) => {
+const Aside = ({ children, onAddList }) => {
   const { darkTheme } = useContext(ThemeContext);
 
   return (
@@ -14,16 +12,7 @@ const Aside = ({ children }) => {
       <Card className={styles.title}>
         <h3>Current Lists</h3>
       </Card>
-      <Form
-        className={styles.asideForm}
-        isFieldActive={true}
-        formData={[
-          { placeholder: `Let's add a list`, labelStatus: false, label: '' },
-        ]}
-        type={'submit'}
-      >
-        <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-      </Form>
+      <AsideForm onAddList={onAddList} />
       <Card>{children}</Card>
     </aside>
   );
