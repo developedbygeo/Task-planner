@@ -1,0 +1,21 @@
+.dark {
+  background: #3f3f46;
+  color: white;
+}
+
+.ctaSec {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  z-index: 11;
+}
+.ctaSec:hover {
+  color: #0b6088;
+}
+
+.ctaSecDark {
+  color: white;
+}
+.ctaSecDark:hover {
+  color: #0ea5e9;
+}
