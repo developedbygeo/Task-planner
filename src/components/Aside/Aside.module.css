@@ -23,16 +23,6 @@ aside {
 aside button:hover {
   color: #0ea5e9;
 }
-.asideForm {
-  display: flex;
-  flex-direction: row;
-  height: 40%;
-  width: 95%;
-  margin-inline: auto;
-  align-items: center;
-  justify-content: center;
-}
-
 .title {
   display: flex;
   justify-content: center;
