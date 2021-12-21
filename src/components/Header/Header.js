@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import ThemeContext from '../../store/themeContext';
 import Nav from './Nav';
 import styles from './Header.module.css';
@@ -24,4 +24,4 @@ const Header = ({ onAsideEnable }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
