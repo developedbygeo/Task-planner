@@ -18,10 +18,7 @@ const Nav = ({ onAsideEnable }) => {
 
   const toggleSearchHandler = (e) => {
     e.preventDefault();
-    setsearchStatus((prevState) => {
-      const inputToggle = prevState === false ? true : false;
-      setsearchStatus(inputToggle);
-    });
+    setsearchStatus((prevState) => !prevState);
   };
 
   return (
