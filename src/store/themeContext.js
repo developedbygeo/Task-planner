@@ -9,10 +9,7 @@ export const ThemeContextProvider = ({ children }) => {
   const [darkThemeEnabled, setDarkThemeEnabled] = useState(false);
 
   const themeChangeHandler = () => {
-    setDarkThemeEnabled((prevState) => {
-      const toggle = prevState === false ? true : false;
-      setDarkThemeEnabled(toggle);
-    });
+    setDarkThemeEnabled((prevState) => !prevState);
   };
 
   return (
