@@ -1,9 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { TaskContext } from '../../store/taskContext';
 import Search from '../UI/Search/Search';
 import Button from '../UI/Button/Button';
 import styles from './AddTaskForm.module.css';
 
 const AddTaskForm = ({ onAddTask }) => {
+  const taskCtx = useContext(TaskContext);
   const taskRef = useRef();
   const priorityRef = useRef();
 
@@ -12,7 +14,7 @@ const AddTaskForm = ({ onAddTask }) => {
     const priority = priorityRef.current.value;
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
-      onAddTask({ task: task, priority: priority });
+      taskCtx.addTask({ task: task, priority: priority });
     } else {
       return;
     }
