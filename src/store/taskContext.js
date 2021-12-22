@@ -1,16 +1,10 @@
-import React, { useReducer, useCallback, useEffect } from 'react';
+import React, { useReducer } from 'react';
 
 export const TaskContext = React.createContext({
   tasks: [],
   addTask: (task) => {},
   addList: (list) => {},
 });
-
-// const defaultState = [
-//   { title: 'default', selected: true, tasks: [] },
-//   { title: 'test', selected: false, tasks: [] },
-// ];
-
 const defaultState = {
   tasksAndLists: [
     {
