@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { TaskContext } from '../../store/taskContext';
 import Search from '../UI/Search/Search';
 import Button from '../UI/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,14 +7,16 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import uniqid from 'uniqid';
 import styles from './AsideForm.module.css';
 
-const AsideForm = ({ onAddList }) => {
+const AsideForm = ({ onFormReset }) => {
+  const TaskCtx = useContext(TaskContext);
   const listRef = useRef();
 
   const submitHandler = (e) => {
     const newList = listRef.current.value;
     e.preventDefault();
     if (newList.trim().length > 0) {
-      onAddList(listRef.current.value);
+      TaskCtx.addList(newList);
+      onFormReset([listRef]);
     } else {
       return;
     }
