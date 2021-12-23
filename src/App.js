@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
 import ThemeContext from './store/themeContext';
+import TaskAndListProvider from './store/taskContext';
 import Header from './components/Header/Header';
 import Aside from './components/Aside/Aside';
 import Section from './components/Section/Section';
 import TaskList from './components/Tasks/TaskList';
-// import AddTaskForm from './components/Tasks/AddTaskForm';
 import AddTask from './components/Tasks/AddTask';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   const [isMenuEnabled, setMenuEnabled] = useState(false);
 
   const asideHandler = () => {
-    setAsideStatus((prevState) => (prevState === false ? true : false));
+    setAsideStatus((prevState) => !prevState);
   };
 
   const menuEnableHandler = () => {
@@ -24,8 +24,8 @@ function App() {
     setMenuEnabled(false);
   };
 
-  const addListHandler = (data) => {
-    console.log(data);
+  const addListHandler = (list) => {
+    console.log(list);
   };
 
   const addTaskHandler = (data) => {
@@ -34,24 +34,26 @@ function App() {
 
   return (
     <>
-      {isMenuEnabled && (
-        <AddTask
-          onAddTask={addTaskHandler}
-          onMenuDisable={menuDisableHandler}
-        />
-      )}
-      <Header
-        onThemeSelection={ctx.onThemeChange}
-        onAsideEnable={asideHandler}
-      />
-      <main className="App">
-        {asideStatus && (
-          <Aside onAddList={addListHandler} theme={ctx.darkTheme} />
+      <TaskAndListProvider>
+        {isMenuEnabled && (
+          <AddTask
+            onAddTask={addTaskHandler}
+            onMenuDisable={menuDisableHandler}
+          />
         )}
-        <Section onMenuEnable={menuEnableHandler}>
-          <TaskList isAsideActive={asideStatus} />
-        </Section>
-      </main>
+        <Header
+          onThemeSelection={ctx.onThemeChange}
+          onAsideEnable={asideHandler}
+        />
+        <main className="App">
+          {asideStatus && (
+            <Aside onAddList={addListHandler} theme={ctx.darkTheme} />
+          )}
+          <Section onMenuEnable={menuEnableHandler}>
+            <TaskList isAsideActive={asideStatus} />
+          </Section>
+        </main>
+      </TaskAndListProvider>
     </>
   );
 }
