@@ -24,12 +24,8 @@ function App() {
     setMenuEnabled(false);
   };
 
-  const addListHandler = (list) => {
-    console.log(list);
-  };
-
-  const addTaskHandler = (data) => {
-    console.log(data);
+  const resetFields = (refArray) => {
+    refArray.map((ref) => (ref.current.value = ''));
   };
 
   return (
@@ -37,7 +33,7 @@ function App() {
       <TaskAndListProvider>
         {isMenuEnabled && (
           <AddTask
-            onAddTask={addTaskHandler}
+            onFormReset={resetFields}
             onMenuDisable={menuDisableHandler}
           />
         )}
@@ -47,7 +43,7 @@ function App() {
         />
         <main className="App">
           {asideStatus && (
-            <Aside onAddList={addListHandler} theme={ctx.darkTheme} />
+            <Aside onFormReset={resetFields} theme={ctx.darkTheme} />
           )}
           <Section onMenuEnable={menuEnableHandler}>
             <TaskList isAsideActive={asideStatus} />
