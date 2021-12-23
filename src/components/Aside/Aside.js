@@ -4,7 +4,7 @@ import AsideForm from './AsideForm';
 import Card from '../UI/Card/Card';
 import styles from './Aside.module.css';
 
-const Aside = ({ children, onAddList }) => {
+const Aside = ({ onFormReset, children }) => {
   const { darkTheme } = useContext(ThemeContext);
 
   return (
@@ -12,7 +12,7 @@ const Aside = ({ children, onAddList }) => {
       <Card className={styles.title}>
         <h3>Current Lists</h3>
       </Card>
-      <AsideForm onAddList={onAddList} />
+      <AsideForm onFormReset={onFormReset} />
       <Card>{children}</Card>
     </aside>
   );
