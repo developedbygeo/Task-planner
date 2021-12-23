@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import _ from 'lodash';
 
 export const TaskContext = React.createContext({
   tasks: [],
@@ -18,20 +19,17 @@ const defaultState = {
 const activityReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_TASK': {
-      const newTask = {
-        ...action.task,
-      };
       const activeIndex = state.tasksAndLists.findIndex(
         (list) => list.selected === true
       );
-      const currentState = {
-        ...state,
-      };
-      const update =
-        currentState.tasksAndLists[activeIndex].tasks.concat(newTask);
-      currentState.tasksAndLists[activeIndex].tasks = update;
-      return currentState;
+      const updatedTasks = state.tasksAndLists
+        .filter((list) => list.selected === true)[0]
+        .tasks.concat(action.task);
+      const updatedState = _.cloneDeep(state);
+      updatedState.tasksAndLists[activeIndex].tasks = updatedTasks;
+      return { ...updatedState };
     }
+
     default:
       return state;
   }
