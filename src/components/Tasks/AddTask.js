@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import styles from './AddTask.module.css';
 
-const AddTask = ({ onAddTask, onMenuDisable }) => {
+const AddTask = ({ onFormReset, onMenuDisable }) => {
   const { darkTheme } = useContext(ThemeContext);
 
   return (
@@ -18,7 +18,7 @@ const AddTask = ({ onAddTask, onMenuDisable }) => {
       >
         <FontAwesomeIcon icon={faTimes} />
       </Button>
-      <AddTaskForm onAddTask={onAddTask} />
+      <AddTaskForm onFormReset={onFormReset} />
     </Modal>
   );
 };
