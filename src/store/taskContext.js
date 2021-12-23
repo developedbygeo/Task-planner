@@ -17,6 +17,7 @@ const defaultState = {
 };
 
 const activityReducer = (state = defaultState, action) => {
+  const updatedState = _.cloneDeep(state);
   switch (action.type) {
     case 'ADD_TASK': {
       const activeIndex = state.tasksAndLists.findIndex(
@@ -25,11 +26,34 @@ const activityReducer = (state = defaultState, action) => {
       const updatedTasks = state.tasksAndLists
         .filter((list) => list.selected === true)[0]
         .tasks.concat(action.task);
-      const updatedState = _.cloneDeep(state);
       updatedState.tasksAndLists[activeIndex].tasks = updatedTasks;
       return { ...updatedState };
     }
-
+    case 'ADD_LIST': {
+      const newObject = { list: action.list, selected: true, tasks: [] };
+      updatedState.tasksAndLists.map((list) => (list.selected = false));
+      updatedState.tasksAndLists.push(newObject);
+      return { ...updatedState };
+    }
+    case 'DELETE_TASK': {
+      const activeListIndex = state.tasksAndLists.findIndex(
+        (list) => list.selected === true
+      );
+      // TODO need to implement obj id
+      const taskToBeDel = state.tasksAndLists[activeListIndex].tasks.findIndex(
+        (obj) => obj.id === action.id
+      );
+      updatedState.tasksAndLists[activeListIndex].tasks.splice(taskToBeDel, 1);
+      return { ...updatedState };
+    }
+    case 'ACTIVATE_LIST': {
+      const activeIndex = state.tasksAndLists.findIndex(
+        (object) => object.list === action.list
+      );
+      updatedState.tasksAndLists.map((list) => (list.selected = false));
+      updatedState.tasksAndLists[activeIndex].selected = true;
+      return { ...updatedState };
+    }
     default:
       return state;
   }
