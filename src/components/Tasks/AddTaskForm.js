@@ -4,7 +4,7 @@ import Search from '../UI/Search/Search';
 import Button from '../UI/Button/Button';
 import styles from './AddTaskForm.module.css';
 
-const AddTaskForm = ({ onAddTask }) => {
+const AddTaskForm = ({ onFormReset }) => {
   const taskCtx = useContext(TaskContext);
   const taskRef = useRef();
   const priorityRef = useRef();
@@ -15,6 +15,7 @@ const AddTaskForm = ({ onAddTask }) => {
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
       taskCtx.addTask({ task: task, priority: priority });
+      onFormReset([taskRef, priorityRef]);
     } else {
       return;
     }
