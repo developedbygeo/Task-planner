@@ -1,5 +1,6 @@
 import { useRef, useContext } from 'react';
 import { TaskContext } from '../../store/taskContext';
+import _ from 'lodash';
 import Search from '../UI/Search/Search';
 import Button from '../UI/Button/Button';
 import styles from './AddTaskForm.module.css';
@@ -14,7 +15,7 @@ const AddTaskForm = ({ onFormReset }) => {
     const priority = priorityRef.current.value;
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
-      taskCtx.addTask({ task: task, priority: priority });
+      taskCtx.addTask({ task: task, priority: priority, id: _.uniqueId() });
       onFormReset([taskRef, priorityRef]);
     } else {
       return;
