@@ -2,7 +2,7 @@ aside {
   width: 15%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.1fr 0.1fr auto;
+  grid-template-rows: 0.1fr auto;
   background: rgb(253, 251, 251);
   background: linear-gradient(
     180deg,
@@ -22,6 +22,9 @@ aside {
 }
 aside button:hover {
   color: #0ea5e9;
+}
+aside ul {
+  overflow: auto;
 }
 .title {
   display: flex;
@@ -43,6 +46,16 @@ aside button:hover {
 }
 input {
   width: 75%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
 }
 
 @keyframes asideAnimation {
