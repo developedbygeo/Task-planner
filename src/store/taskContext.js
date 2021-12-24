@@ -6,6 +6,7 @@ export const TaskContext = React.createContext({
   addTask: (task) => {},
   addList: (list) => {},
 });
+
 const defaultState = {
   tasksAndLists: [
     {
@@ -39,7 +40,6 @@ const activityReducer = (state = defaultState, action) => {
       const activeListIndex = state.tasksAndLists.findIndex(
         (list) => list.selected === true
       );
-      // TODO need to implement obj id
       const taskToBeDel = state.tasksAndLists[activeListIndex].tasks.findIndex(
         (obj) => obj.id === action.id
       );
