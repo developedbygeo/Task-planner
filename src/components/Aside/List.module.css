@@ -1,0 +1,11 @@
+.listItems {
+  width: 95%;
+  margin: auto;
+  height: auto;
+  word-wrap: anywhere;
+  transition: all 250ms ease-in-out;
+}
+
+.selected {
+  transform: scale(1.15);
+}
