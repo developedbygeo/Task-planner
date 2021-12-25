@@ -4,12 +4,12 @@ import Priority from '../UI/Priority/Priority';
 import Card from '../UI/Card/Card';
 import styles from './Task.module.css';
 
-const Task = ({ header, id, description }) => {
+const Task = ({ onClick, className, header, id, description }) => {
   const { darkTheme } = useContext(ThemeContext);
 
   return (
-    <li className={styles.li} key={id}>
-      <Card className={styles.elementWrapper}>
+    <li onClick={onClick} className={styles.li} key={id}>
+      <Card className={`${styles.elementWrapper} ${className}`}>
         {header && <h3>{header}</h3>}
         {description && (
           <Priority
