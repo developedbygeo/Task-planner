@@ -2,6 +2,7 @@ import { useRef, useContext } from 'react';
 import { TaskContext } from '../../store/taskContext';
 import _ from 'lodash';
 import Search from '../UI/Search/Search';
+import Select from '../UI/Select/Select';
 import Button from '../UI/Button/Button';
 import styles from './AddTaskForm.module.css';
 
@@ -16,7 +17,7 @@ const AddTaskForm = ({ onFormReset }) => {
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
       taskCtx.addTask({ task: task, priority: priority, id: _.uniqueId() });
-      onFormReset([taskRef, priorityRef]);
+      onFormReset([taskRef]);
     } else {
       return;
     }
@@ -35,12 +36,7 @@ const AddTaskForm = ({ onFormReset }) => {
       </div>
       <div className={styles.formFields}>
         <label htmlFor="taskPriority">Task Priority</label>
-        <Search
-          required
-          ref={priorityRef}
-          id={'taskPriority'}
-          placeholder={`What is the task's priority?`}
-        />
+        <Select ref={priorityRef} />
       </div>
       <Button type="submit" className={styles.cta}>
         Add
