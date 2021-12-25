@@ -1,0 +1,10 @@
+.priorityWrapper {
+  -webkit-box-shadow: inset 0px 0px 15px #e2e0e0;
+  -moz-box-shadow: inset 0px 0px 15px #e2e0e0;
+  box-shadow: inset 0px 0px 15px #e2e0e0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 90%;
+  width: 15%;
+}
