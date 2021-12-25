@@ -19,39 +19,46 @@ const defaultState = {
 
 const activityReducer = (state = defaultState, action) => {
   const updatedState = _.cloneDeep(state);
+  const { tasksAndLists } = updatedState;
+  const activeIndex = tasksAndLists.findIndex((list) => list.selected === true);
+
   switch (action.type) {
     case 'ADD_TASK': {
-      const activeIndex = state.tasksAndLists.findIndex(
-        (list) => list.selected === true
-      );
-      const updatedTasks = state.tasksAndLists
+      const updatedTasks = tasksAndLists
         .filter((list) => list.selected === true)[0]
         .tasks.concat(action.task);
-      updatedState.tasksAndLists[activeIndex].tasks = updatedTasks;
+      tasksAndLists[activeIndex].tasks = updatedTasks;
       return { ...updatedState };
     }
     case 'ADD_LIST': {
       const newObject = { list: action.list, selected: true, tasks: [] };
-      updatedState.tasksAndLists.map((list) => (list.selected = false));
-      updatedState.tasksAndLists.push(newObject);
+      tasksAndLists.map((list) => (list.selected = false));
+      tasksAndLists.push(newObject);
       return { ...updatedState };
     }
-    case 'DELETE_TASK': {
-      const activeListIndex = state.tasksAndLists.findIndex(
-        (list) => list.selected === true
+    case 'COMPLETE_TOGGLE': {
+      const taskToBeMarked = tasksAndLists[activeIndex].tasks.find(
+        (task) => task.id === action.id
       );
-      const taskToBeDel = state.tasksAndLists[activeListIndex].tasks.findIndex(
+      taskToBeMarked.completed = !taskToBeMarked.completed;
+      return { ...updatedState };
+    }
+    // TODO refactor delete_task to delete all completed tasks
+    // don't need ID for that - ID is used in MARK_COMPLETE
+    case 'DELETE_TASK': {
+      const taskToBeDel = tasksAndLists[activeIndex].tasks.findIndex(
         (obj) => obj.id === action.id
       );
-      updatedState.tasksAndLists[activeListIndex].tasks.splice(taskToBeDel, 1);
+      tasksAndLists[activeIndex].tasks.splice(taskToBeDel, 1);
       return { ...updatedState };
     }
+    // TODO might need list ID
     case 'ACTIVATE_LIST': {
-      const activeIndex = state.tasksAndLists.findIndex(
+      const activeIndex = tasksAndLists.findIndex(
         (object) => object.list === action.list
       );
-      updatedState.tasksAndLists.map((list) => (list.selected = false));
-      updatedState.tasksAndLists[activeIndex].selected = true;
+      tasksAndLists.map((list) => (list.selected = false));
+      tasksAndLists[activeIndex].selected = true;
       return { ...updatedState };
     }
     default:
@@ -74,6 +81,9 @@ const TaskAndListProvider = ({ children }) => {
   const activateListHandler = (activatedList) => {
     dispatchActivity({ type: 'ACTIVATE_LIST', active: activatedList });
   };
+  const completeToggleHandler = (id) => {
+    dispatchActivity({ type: 'COMPLETE_TOGGLE', id: id });
+  };
   const deleteTaskHandler = (id) => {
     dispatchActivity({ type: 'DELETE_TASK', id: id });
   };
@@ -82,6 +92,7 @@ const TaskAndListProvider = ({ children }) => {
     currentState: activityState,
     addTask: addTaskHandler,
     addList: addListHandler,
+    toggleComplete: completeToggleHandler,
     deleteTask: deleteTaskHandler,
     activateList: activateListHandler,
   };
