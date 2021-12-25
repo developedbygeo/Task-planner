@@ -22,7 +22,11 @@ li {
 
 .stars {
   color: #0ea5e9;
+  -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
 }
 .starsDark {
   color: #fcda19;
+  -webkit-filter: drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.35));
 }
