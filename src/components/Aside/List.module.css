@@ -4,17 +4,24 @@
   height: auto;
   word-wrap: anywhere;
   transition: all 250ms ease-in-out;
+  -webkit-box-shadow: rgba(15, 23, 42, 0.2) 0px 3px 8px;
   box-shadow: rgba(15, 23, 42, 0.2) 0px 3px 8px;
+}
+p::first-letter {
+  text-transform: capitalize;
 }
 
 .darkListItems {
   color: #0f172a;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 8px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 8px;
 }
 
 .selected {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) inset 0px 4px 4px;
   box-shadow: rgba(0, 0, 0, 0.2) inset 0px 4px 4px;
 }
 .selectedDark {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.45) inset 0px 5px 4px;
   box-shadow: rgba(0, 0, 0, 0.45) inset 0px 5px 4px;
 }
