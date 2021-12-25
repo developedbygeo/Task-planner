@@ -4,8 +4,17 @@
   height: auto;
   word-wrap: anywhere;
   transition: all 250ms ease-in-out;
+  box-shadow: rgba(15, 23, 42, 0.2) 0px 3px 8px;
+}
+
+.darkListItems {
+  color: #0f172a;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 8px;
 }
 
 .selected {
-  transform: scale(1.15);
+  box-shadow: rgba(0, 0, 0, 0.2) inset 0px 4px 4px;
+}
+.selectedDark {
+  box-shadow: rgba(0, 0, 0, 0.45) inset 0px 5px 4px;
 }
