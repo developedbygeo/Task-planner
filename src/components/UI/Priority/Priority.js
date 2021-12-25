@@ -21,7 +21,7 @@ const Priority = ({ className, priorityLevel }) => {
   });
 
   return (
-    <Card title={parsedLevel} className={styles.priorityWrapper}>
+    <Card title={`Priority: ${parsedLevel}`} className={styles.priorityWrapper}>
       {parsedIcons}
     </Card>
   );
