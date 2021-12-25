@@ -16,7 +16,13 @@ const AddTaskForm = ({ onFormReset }) => {
     const priority = priorityRef.current.value;
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
-      taskCtx.addTask({ task: task, priority: priority, id: _.uniqueId() });
+      // default task structure
+      taskCtx.addTask({
+        task: task,
+        priority: priority,
+        completed: false,
+        id: _.uniqueId(),
+      });
       onFormReset([taskRef]);
     } else {
       return;
