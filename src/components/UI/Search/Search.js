@@ -8,7 +8,7 @@ const Search = React.forwardRef(
         <input
           required={required}
           ref={ref}
-          className={`${styles.inputField} ${className ? className : ''}`}
+          className={`${styles.inputField} ${className ? className : null}`}
           onChange={onChange}
           id={id ? id : null}
           type="text"
