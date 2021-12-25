@@ -10,8 +10,15 @@ const TaskList = ({ isAsideActive }) => {
   const activeTasks = allTasks.filter((list) => list.selected === true)[0]
     .tasks;
 
+  const taskRemoveHandler = (id) => console.log(id);
+
   const tasks = activeTasks.map(({ task, priority, id }) => (
-    <Task header={task} description={priority} key={id} />
+    <Task
+      onClick={taskRemoveHandler.bind(null, id)}
+      header={task}
+      description={priority}
+      key={id}
+    />
   ));
 
   return (
