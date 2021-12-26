@@ -5,12 +5,13 @@ import styles from './TaskList.module.css';
 
 const TaskList = ({ isAsideActive }) => {
   const {
-    currentState: { tasksAndLists: allTasks },
+    toggleComplete,
+    currentState: { tasksAndLists },
   } = useContext(TaskContext);
-  const activeTasks = allTasks.filter((list) => list.selected === true)[0]
+  const activeTasks = tasksAndLists.filter((list) => list.selected === true)[0]
     .tasks;
 
-  const taskRemoveHandler = (id) => console.log(id);
+  const taskRemoveHandler = (id) => toggleComplete(id);
 
   const tasks = activeTasks.map(({ task, priority, id }) => (
     <Task
