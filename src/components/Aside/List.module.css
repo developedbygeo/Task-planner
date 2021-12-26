@@ -6,6 +6,7 @@
   transition: all 250ms ease-in-out;
   -webkit-box-shadow: rgba(15, 23, 42, 0.2) 0px 3px 8px;
   box-shadow: rgba(15, 23, 42, 0.2) 0px 3px 8px;
+  cursor: pointer;
 }
 p::first-letter {
   text-transform: capitalize;
