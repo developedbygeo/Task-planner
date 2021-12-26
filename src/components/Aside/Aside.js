@@ -10,8 +10,11 @@ import styles from './Aside.module.css';
 const Aside = ({ onFormReset }) => {
   const { darkTheme } = useContext(ThemeContext);
   const {
+    activateList,
     currentState: { tasksAndLists: allLists },
   } = useContext(TaskContext);
+
+  const toggleActiveHandler = (list) => activateList(list);
 
   return (
     <aside className={darkTheme ? styles.dark : styles.aside}>
@@ -23,7 +26,12 @@ const Aside = ({ onFormReset }) => {
       </div>
       <ul>
         {allLists.map((list) => (
-          <List title={list.list} selected={list.selected} key={_.uniqueId()} />
+          <List
+            onClick={toggleActiveHandler.bind(null, list)}
+            title={list.list}
+            selected={list.selected}
+            key={_.uniqueId()}
+          />
         ))}
       </ul>
     </aside>
