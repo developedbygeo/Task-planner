@@ -14,7 +14,7 @@ import ThemeContext from '../../store/themeContext';
 
 const Nav = ({ onAsideEnable }) => {
   const [searchStatus, setsearchStatus] = useState(false);
-  const ctx = useContext(ThemeContext);
+  const { darkTheme, onThemeChange } = useContext(ThemeContext);
 
   const toggleSearchHandler = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Nav = ({ onAsideEnable }) => {
       <Button
         onClick={onAsideEnable}
         title="Toggle menu"
-        className={ctx.darkTheme ? styles.ctaDark : styles.cta}
+        className={darkTheme ? styles.ctaDark : styles.cta}
       >
         <FontAwesomeIcon icon={faBars} />
       </Button>
@@ -41,17 +41,17 @@ const Nav = ({ onAsideEnable }) => {
           onClick={toggleSearchHandler}
           type="submit"
           title="Search"
-          className={ctx.darkTheme ? styles.ctaDark : styles.cta}
+          className={darkTheme ? styles.ctaDark : styles.cta}
         >
           <FontAwesomeIcon icon={faSearch} />
         </Button>
         <Button
-          className={ctx.darkTheme ? styles.ctaDark : styles.cta}
-          onClick={ctx.onThemeChange}
-          title="Toggle dark mode"
+          className={darkTheme ? styles.ctaDark : styles.cta}
+          onClick={onThemeChange}
+          title={`Change to ${darkTheme ? 'light' : 'dark'} mode`}
         >
-          {ctx.darkTheme && <FontAwesomeIcon icon={faToggleOff} />}
-          {!ctx.darkTheme && <FontAwesomeIcon icon={faToggleOn} />}
+          {darkTheme && <FontAwesomeIcon icon={faToggleOff} />}
+          {!darkTheme && <FontAwesomeIcon icon={faToggleOn} />}
         </Button>
       </Card>
     </nav>
