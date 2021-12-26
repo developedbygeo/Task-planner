@@ -4,7 +4,7 @@ import Search from '../UI/Search/Search';
 import Button from '../UI/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import uniqid from 'uniqid';
+import _ from 'lodash';
 import styles from './AsideForm.module.css';
 
 const AsideForm = ({ onFormReset }) => {
@@ -24,11 +24,11 @@ const AsideForm = ({ onFormReset }) => {
 
   return (
     <form onSubmit={submitHandler} className={styles.asideForm}>
-      <div key={uniqid()}>
+      <div key={_.uniqueId()}>
         <Search required ref={listRef} placeholder={`Let's add a list!`} />
       </div>
       <div>
-        <Button type="submit">
+        <Button type="submit" title="Add a new list!">
           <FontAwesomeIcon icon={faPlus} />
         </Button>
       </div>
