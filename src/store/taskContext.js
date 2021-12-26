@@ -52,10 +52,9 @@ const activityReducer = (state = defaultState, action) => {
       tasksAndLists[activeIndex].tasks.splice(taskToBeDel, 1);
       return { ...updatedState };
     }
-    // TODO might need list ID
     case 'ACTIVATE_LIST': {
       const activeIndex = tasksAndLists.findIndex(
-        (object) => object.list === action.list
+        (object) => object.list === action.active.list
       );
       tasksAndLists.map((list) => (list.selected = false));
       tasksAndLists[activeIndex].selected = true;
