@@ -1,0 +1,87 @@
+.dialogueWrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  display: grid;
+  grid-template-rows: 1fr 0.4fr;
+}
+.warning {
+  align-self: center;
+  text-align: center;
+  letter-spacing: 0.05rem;
+  font-family: 'Lato', sans-serif;
+  line-height: 3rem;
+}
+.value {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.actions {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.cta {
+  color: white;
+  border-radius: 2rem;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  text-shadow: none;
+}
+.cta::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  z-index: -2;
+}
+.cta::before {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  width: 0%;
+  height: 100%;
+  transition: all 400ms linear;
+  z-index: -1;
+}
+.cta:hover::before {
+  width: 100%;
+}
+
+.cta:hover,
+.cta:focus {
+  color: white;
+}
+
+.ctaYes::before {
+  left: 0;
+}
+
+.ctaNo::before {
+  right: 0;
+}
+
+.ctaNo::after {
+  background-color: #a11a25;
+}
+
+.ctaYes::after {
+  background-color: #108174;
+}
+
+.ctaYes:hover::before {
+  background-color: #20cab4;
+  border-radius: 2rem;
+}
+
+.ctaNo:hover::before {
+  background-color: #f51225;
+  border-radius: 2rem;
+}
