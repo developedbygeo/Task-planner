@@ -10,18 +10,27 @@ import AddTask from './components/Tasks/AddTask';
 function App() {
   const ctx = useContext(ThemeContext);
   const [asideStatus, setAsideStatus] = useState(false);
-  const [isMenuEnabled, setMenuEnabled] = useState(false);
+  const [isAddMenuEnabled, setAddMenuEnabled] = useState(false);
+  const [isDeleteMenuEnabled, setDeleteMenuEnabled] = useState(false);
 
   const asideHandler = () => {
     setAsideStatus((prevState) => !prevState);
   };
 
-  const menuEnableHandler = () => {
-    setMenuEnabled(true);
+  const addMenuEnableHandler = () => {
+    setAddMenuEnabled(true);
   };
 
-  const menuDisableHandler = () => {
-    setMenuEnabled(false);
+  const MenuDisableHandler = () => {
+    if (isAddMenuEnabled) {
+      setAddMenuEnabled(false);
+    } else {
+      setDeleteMenuEnabled(false);
+    }
+  };
+
+  const removeMenuEnableHandler = () => {
+    setDeleteMenuEnabled(true);
   };
 
   const resetFields = (refArray) => {
@@ -31,11 +40,15 @@ function App() {
   return (
     <>
       <TaskAndListProvider>
-        {isMenuEnabled && (
+        {isAddMenuEnabled && (
           <AddTask
+            add={true}
             onFormReset={resetFields}
-            onMenuDisable={menuDisableHandler}
+            onMenuDisable={MenuDisableHandler}
           />
+        )}
+        {isDeleteMenuEnabled && (
+          <AddTask add={false} onMenuDisable={MenuDisableHandler} />
         )}
         <Header
           onThemeSelection={ctx.onThemeChange}
@@ -45,7 +58,10 @@ function App() {
           {asideStatus && (
             <Aside onFormReset={resetFields} theme={ctx.darkTheme} />
           )}
-          <Section onMenuEnable={menuEnableHandler}>
+          <Section
+            onMenuEnable={addMenuEnableHandler}
+            onRemoveMenuEnable={removeMenuEnableHandler}
+          >
             <TaskList isAsideActive={asideStatus} />
           </Section>
         </main>
