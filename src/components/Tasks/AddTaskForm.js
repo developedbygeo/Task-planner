@@ -7,7 +7,7 @@ import Button from '../UI/Button/Button';
 import styles from './AddTaskForm.module.css';
 
 const AddTaskForm = ({ onFormReset }) => {
-  const taskCtx = useContext(TaskContext);
+  const { addTask } = useContext(TaskContext);
   const taskRef = useRef();
   const priorityRef = useRef();
 
@@ -17,7 +17,7 @@ const AddTaskForm = ({ onFormReset }) => {
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
       // default task structure
-      taskCtx.addTask({
+      addTask({
         task: task,
         priority: priority,
         completed: false,
