@@ -7,14 +7,14 @@ const Header = ({ onAsideEnable }) => {
   const { darkTheme } = useContext(ThemeContext);
 
   return (
-    <header className={`${styles.header} ${darkTheme && styles.dark}`}>
+    <header className={`${styles.header} ${darkTheme ? styles.dark : ''}`}>
       <div className={styles.logoWrapper}>
         <a
           target="_blank"
           rel="noreferrer"
           href="https://www.github.com/developedbygeo"
         >
-          <h1 className={darkTheme ? styles.darkText : undefined}>
+          <h1 className={darkTheme ? styles.darkText : ''}>
             <span className={styles.logo1}>Task</span> Tracker
           </h1>
         </a>
