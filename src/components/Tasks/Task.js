@@ -11,7 +11,7 @@ const Task = ({ onClick, completed, title, header, id, description }) => {
     <li onClick={onClick} className={styles.li} key={id} title={title}>
       <Card
         className={`${styles.elementWrapper} ${
-          completed ? styles.completed : null
+          completed ? styles.completed : ''
         }`}
       >
         {header && <h3>{header}</h3>}
