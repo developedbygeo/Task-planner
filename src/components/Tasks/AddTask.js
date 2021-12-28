@@ -33,13 +33,6 @@ const AddTask = ({ onFormReset, onMenuDisable, add }) => {
     <Modal onMenuDisable={onMenuDisable} className={darkTheme && styles.dark}>
       {add && addingLayout}
       {!add && removingLayout}
-      {/* <Button
-          onClick={onMenuDisable}
-          className={`${styles.ctaSec} ${darkTheme ? styles.ctaSecDark : null}`}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </Button>
-        <AddTaskForm onFormReset={onFormReset} /> */}
     </Modal>
   );
 };
