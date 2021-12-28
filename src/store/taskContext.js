@@ -30,12 +30,14 @@ const activityReducer = (state = defaultState, action) => {
       tasksAndLists[activeIndex].tasks = updatedTasks;
       return { ...updatedState };
     }
+
     case 'ADD_LIST': {
       const newObject = { list: action.list, selected: true, tasks: [] };
       tasksAndLists.map((list) => (list.selected = false));
       tasksAndLists.push(newObject);
       return { ...updatedState };
     }
+
     case 'COMPLETE_TOGGLE': {
       const taskToBeMarked = tasksAndLists[activeIndex].tasks.find(
         (task) => task.id === action.id
@@ -43,15 +45,31 @@ const activityReducer = (state = defaultState, action) => {
       taskToBeMarked.completed = !taskToBeMarked.completed;
       return { ...updatedState };
     }
-    // TODO refactor delete_task to delete all completed tasks
-    // don't need ID for that - ID is used in MARK_COMPLETE
+
     case 'DELETE_TASK': {
+      const defaultList = tasksAndLists.find((obj) => obj.list === 'default');
+      const isCurrentListDefault =
+        tasksAndLists[activeIndex].list === 'default';
       const taskToBeDel = tasksAndLists[activeIndex].tasks.findIndex(
         (obj) => obj.id === action.id
       );
+      // finds the task (based on index) and removes it
       tasksAndLists[activeIndex].tasks.splice(taskToBeDel, 1);
+      // if the task length is 0 & it is NOT the default list, it filters the list out
+      if (
+        tasksAndLists[activeIndex].tasks.length === 0 &&
+        !isCurrentListDefault
+      ) {
+        defaultList.selected = true;
+        const updatedLists = tasksAndLists.filter(
+          (list) => list.tasks.length !== 0
+        );
+        return { ...updatedState, tasksAndLists: updatedLists };
+      }
+
       return { ...updatedState };
     }
+
     case 'ACTIVATE_LIST': {
       const activeIndex = tasksAndLists.findIndex(
         (object) => object.list === action.active.list
