@@ -8,24 +8,47 @@ import styles from './RemoveTaskDialogue.module.css';
 const RemoveTaskDialogue = ({ onRemoveMenuDisable }) => {
   const {
     currentState: { tasksAndLists: allLists },
+    deleteTask,
   } = useContext(TaskContext);
 
-  const numberOfTasks = allLists
-    .find((list) => list.selected === true)
-    .tasks.filter((task) => task.completed === true).length;
+  const activeList = allLists.find((list) => list.selected === true);
+
+  const tasksToBeRemoved = activeList.tasks.filter(
+    (task) => task.completed === true
+  );
+
+  const numberOfDelTasks = tasksToBeRemoved.length;
+
+  const deleteTasksHandler = () => {
+    tasksToBeRemoved.map((task) => deleteTask(task.id));
+    onRemoveMenuDisable();
+  };
+
+  const tasksSpan = numberOfDelTasks > 1 ? 'tasks' : 'task';
+
+  const listDeletionWarning =
+    activeList.tasks.length === numberOfDelTasks ? (
+      <p>
+        The list will also be <b>deleted</b>.
+      </p>
+    ) : (
+      ''
+    );
 
   return (
     <div className={styles.dialogueWrapper}>
       <div className={styles.warning}>
         <p>
           You are about to remove{' '}
-          <span className={styles.value}>{numberOfTasks}</span> tasks.
+          <span className={styles.value}>{numberOfDelTasks}</span> {tasksSpan}.
+          {listDeletionWarning}
           <br /> Do you want to proceed?
         </p>
       </div>
       <div className={styles.actionWrapper}>
         <div className={styles.actions}>
           <Button
+            onClick={deleteTasksHandler}
             title="Yup, let's delete them."
             className={`${styles.cta} ${styles.ctaYes}`}
           >
