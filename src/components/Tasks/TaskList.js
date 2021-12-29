@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { TaskContext } from '../../store/taskContext';
+import ThemeContext from '../../store/themeContext';
 import Task from './Task';
 import styles from './TaskList.module.css';
 
@@ -10,6 +11,7 @@ const TaskList = ({ isAsideActive }) => {
   } = useContext(TaskContext);
   const activeTasks = tasksAndLists.filter((list) => list.selected === true)[0]
     .tasks;
+  const { darkTheme } = useContext(ThemeContext);
 
   const taskRemoveHandler = (id) => toggleComplete(id);
 
@@ -25,7 +27,11 @@ const TaskList = ({ isAsideActive }) => {
   ));
 
   return (
-    <ul className={isAsideActive ? styles.ulAsideActive : styles.ul}>
+    <ul
+      className={`${isAsideActive ? styles.ulAsideActive : styles.ul} ${
+        darkTheme ? styles.dark : ''
+      }`}
+    >
       {tasks}
     </ul>
   );
