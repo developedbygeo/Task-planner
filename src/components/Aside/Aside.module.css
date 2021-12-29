@@ -25,7 +25,25 @@ aside button:hover {
 }
 aside ul {
   overflow: auto;
+  scrollbar-width: 16px;
+  scrollbar-color: #0ea4e98a #dad8d8;
 }
+aside ul::-webkit-scrollbar {
+  width: 16px;
+}
+aside ul::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+}
+aside ul::-webkit-scrollbar-track {
+  background: #dad8d8;
+  border-radius: 2rem;
+}
+aside ul::-webkit-scrollbar-thumb {
+  background-color: #0ea4e98a;
+  border-radius: 2rem;
+  border: 4px solid #dad8d8;
+}
+
 .title {
   display: flex;
   justify-content: center;
