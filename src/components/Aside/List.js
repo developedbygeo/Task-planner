@@ -11,9 +11,9 @@ const List = ({ onClick, title, selected, id }) => {
       onClick={onClick}
       key={id}
       className={`${styles.listItems}  ${
-        darkTheme ? styles.darkListItems : null
+        darkTheme ? styles.darkListItems : ''
       } ${selectedDark && styles.selectedDark} 
-      ${selected ? styles.selected : null}`}
+      ${selected ? styles.selected : ''}`}
       title={`Click to enable the ${title} list`}
     >
       <Card>
