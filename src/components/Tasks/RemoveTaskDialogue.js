@@ -28,9 +28,10 @@ const RemoveTaskDialogue = ({ onRemoveMenuDisable }) => {
 
   const listDeletionWarning =
     activeList.tasks.length === numberOfDelTasks ? (
-      <p>
+      <span>
+        <br />
         The list will also be <b>deleted</b>.
-      </p>
+      </span>
     ) : (
       ''
     );
