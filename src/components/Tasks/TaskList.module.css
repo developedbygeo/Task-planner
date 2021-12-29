@@ -9,6 +9,32 @@ ul {
   align-items: center;
   overflow-y: auto;
   background: transparent;
+  scrollbar-width: 16px;
+  scrollbar-color: #3d9cec #d2d1d1;
+}
+
+ul::-webkit-scrollbar {
+  width: 16px;
+}
+ul::-webkit-scrollbar-track {
+  background: #e2eef5;
+  border-radius: 2rem;
+}
+ul::-webkit-scrollbar-thumb {
+  background-color: #3d9cec;
+  border-radius: 2rem;
+  border: 4px solid #d1d1d1;
+}
+.dark {
+  scrollbar-color: #101011 #45454b;
+}
+.dark::-webkit-scrollbar-track {
+  background: #45454b;
+  border-radius: 2rem;
+}
+.dark::-webkit-scrollbar-thumb {
+  background-color: #1d1d1f;
+  border: 4px solid #45454b;
 }
 
 .ulAsideActive {
