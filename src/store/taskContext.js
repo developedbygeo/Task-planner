@@ -61,9 +61,9 @@ const activityReducer = (state = defaultState, action) => {
         !isCurrentListDefault
       ) {
         defaultList.selected = true;
-        const updatedLists = tasksAndLists.filter(
-          (list) => list.tasks.length !== 0
-        );
+        const updatedLists = tasksAndLists
+          .filter((list) => list.tasks.length !== 0)
+          .concat(defaultList);
         return { ...updatedState, tasksAndLists: updatedLists };
       }
 
