@@ -12,7 +12,7 @@ const AddTaskForm = ({ onFormReset }) => {
   const priorityRef = useRef();
 
   const addTaskHandler = (e) => {
-    const task = taskRef.current.value;
+    const task = taskRef.current.value.toLowerCase();
     const priority = priorityRef.current.value;
     e.preventDefault();
     if (task.trim().length > 0 && priority.trim().length > 0) {
