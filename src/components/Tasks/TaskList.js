@@ -22,6 +22,7 @@ const TaskList = ({ isAsideActive }) => {
       header={task}
       description={priority}
       key={id}
+      id={id}
       completed={completed}
     />
   ));
