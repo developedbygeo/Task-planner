@@ -11,14 +11,23 @@ import Search from '../UI/Search/Search';
 import Card from '../UI/Card/Card';
 import styles from './Nav.module.css';
 import ThemeContext from '../../store/themeContext';
+import { TaskContext } from '../../store/taskContext';
 
 const Nav = ({ onAsideEnable }) => {
   const [searchStatus, setsearchStatus] = useState(false);
   const { darkTheme, onThemeChange } = useContext(ThemeContext);
+  const { searchTask } = useContext(TaskContext);
 
   const toggleSearchHandler = (e) => {
     e.preventDefault();
     setsearchStatus((prevState) => !prevState);
+  };
+
+  const searchTaskHandler = (e) => {
+    const query = e.target.value.toLowerCase();
+    if (query.trim().length > 1) {
+      searchTask(query);
+    }
   };
 
   return (
@@ -33,6 +42,7 @@ const Nav = ({ onAsideEnable }) => {
       <Card className={styles.buttons}>
         {searchStatus && (
           <Search
+            onChange={searchTaskHandler}
             className={styles.search}
             placeholder="What are we looking for?"
           />
