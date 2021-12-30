@@ -78,6 +78,7 @@ const activityReducer = (state = defaultState, action) => {
       tasksAndLists[activeIndex].selected = true;
       return { ...updatedState };
     }
+
     default:
       return state;
   }
@@ -92,25 +93,32 @@ const TaskAndListProvider = ({ children }) => {
   const addTaskHandler = (task) => {
     dispatchActivity({ type: 'ADD_TASK', task: task });
   };
+  const deleteTaskHandler = (id) => {
+    dispatchActivity({ type: 'DELETE_TASK', id: id });
+  };
+
+  const searchTaskHandler = (query) => {
+    dispatchActivity({ type: 'SEARCH_TASK', query: query });
+  };
+
+  const completeToggleHandler = (id) => {
+    dispatchActivity({ type: 'COMPLETE_TOGGLE', id: id });
+  };
+
   const addListHandler = (list) => {
     dispatchActivity({ type: 'ADD_LIST', list: list });
   };
   const activateListHandler = (activatedList) => {
     dispatchActivity({ type: 'ACTIVATE_LIST', active: activatedList });
   };
-  const completeToggleHandler = (id) => {
-    dispatchActivity({ type: 'COMPLETE_TOGGLE', id: id });
-  };
-  const deleteTaskHandler = (id) => {
-    dispatchActivity({ type: 'DELETE_TASK', id: id });
-  };
 
   const defaultValues = {
     currentState: activityState,
     addTask: addTaskHandler,
-    addList: addListHandler,
-    toggleComplete: completeToggleHandler,
     deleteTask: deleteTaskHandler,
+    searchTask: searchTaskHandler,
+    toggleComplete: completeToggleHandler,
+    addList: addListHandler,
     activateList: activateListHandler,
   };
 
