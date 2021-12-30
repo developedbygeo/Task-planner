@@ -31,21 +31,6 @@ const activityReducer = (state = defaultState, action) => {
       return { ...updatedState };
     }
 
-    case 'ADD_LIST': {
-      const newObject = { list: action.list, selected: true, tasks: [] };
-      tasksAndLists.map((list) => (list.selected = false));
-      tasksAndLists.push(newObject);
-      return { ...updatedState };
-    }
-
-    case 'COMPLETE_TOGGLE': {
-      const taskToBeMarked = tasksAndLists[activeIndex].tasks.find(
-        (task) => task.id === action.id
-      );
-      taskToBeMarked.completed = !taskToBeMarked.completed;
-      return { ...updatedState };
-    }
-
     case 'DELETE_TASK': {
       const defaultList = tasksAndLists.find((obj) => obj.list === 'default');
       const isCurrentListDefault =
@@ -67,7 +52,42 @@ const activityReducer = (state = defaultState, action) => {
         return { ...updatedState, tasksAndLists: updatedLists };
       }
 
-      return { ...updatedState };
+      return { ...updatedState, selection: '' };
+    }
+
+    case 'SEARCH_TASK': {
+      // locates the object and if it exists, extracts id and locates the parent.
+      const taskObject = tasksAndLists
+        .map((obj) =>
+          obj.tasks.filter((list) => list.task.includes(action.query))
+        )
+        .flat()[0];
+      if (taskObject) {
+        const taskId = taskObject.id;
+        const taskParent = tasksAndLists.find((obj) =>
+          obj.tasks.some((task) => task.id === taskId)
+        );
+        // then parent is set as selected and returns a selection id through context
+        tasksAndLists.map((list) => (list.selected = false));
+        taskParent.selected = true;
+        return { ...updatedState, selection: taskId };
+      }
+      return { ...updatedState, selection: '' };
+    }
+
+    case 'ADD_LIST': {
+      const newObject = { list: action.list, selected: true, tasks: [] };
+      tasksAndLists.map((list) => (list.selected = false));
+      tasksAndLists.push(newObject);
+      return { ...updatedState, selection: '' };
+    }
+
+    case 'COMPLETE_TOGGLE': {
+      const taskToBeMarked = tasksAndLists[activeIndex].tasks.find(
+        (task) => task.id === action.id
+      );
+      taskToBeMarked.completed = !taskToBeMarked.completed;
+      return { ...updatedState, selection: '' };
     }
 
     case 'ACTIVATE_LIST': {
@@ -76,7 +96,7 @@ const activityReducer = (state = defaultState, action) => {
       );
       tasksAndLists.map((list) => (list.selected = false));
       tasksAndLists[activeIndex].selected = true;
-      return { ...updatedState };
+      return { ...updatedState, selection: '' };
     }
 
     default:
