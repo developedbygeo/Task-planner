@@ -43,6 +43,9 @@ section {
   transform: scale(1.2);
   text-decoration: none;
 }
+.actionBtn:focus {
+  color: rgb(255, 255, 255);
+}
 
 .add:hover {
   background-position: right center;
