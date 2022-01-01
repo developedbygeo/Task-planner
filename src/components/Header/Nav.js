@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
@@ -15,17 +15,18 @@ import { TaskContext } from '../../store/taskContext';
 
 const Nav = ({ onAsideEnable }) => {
   const [searchStatus, setsearchStatus] = useState(false);
-  const { darkTheme, onThemeChange } = useContext(ThemeContext);
   const { searchTask } = useContext(TaskContext);
+  const { darkTheme, onThemeChange } = useContext(ThemeContext);
+  const searchRef = useRef();
 
   const toggleSearchHandler = (e) => {
     e.preventDefault();
     setsearchStatus((prevState) => !prevState);
   };
 
-  const searchTaskHandler = (e) => {
-    const query = e.target.value.toLowerCase();
-    if (query.trim().length > 1) {
+  const searchTaskHandler = () => {
+    const query = searchRef.current.value.toLowerCase();
+    if (query.trim().length >= 2) {
       searchTask(query);
     }
   };
@@ -43,6 +44,7 @@ const Nav = ({ onAsideEnable }) => {
         {searchStatus && (
           <Search
             onChange={searchTaskHandler}
+            ref={searchRef}
             className={styles.search}
             placeholder="What are we looking for?"
           />
