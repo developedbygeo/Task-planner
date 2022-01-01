@@ -15,7 +15,7 @@ const TaskList = ({ isAsideActive }) => {
 
   const taskRemoveHandler = (id) => toggleComplete(id);
 
-  const tasks = activeTasks.map(({ completed, task, priority, id }) => (
+  const tasks = activeTasks.map(({ completed, task, priority, id }, index) => (
     <Task
       onClick={taskRemoveHandler.bind(null, id)}
       title={`Mark ${task} as ${completed ? 'pending' : 'completed'}`}
@@ -24,6 +24,7 @@ const TaskList = ({ isAsideActive }) => {
       key={id}
       id={id}
       completed={completed}
+      tabIndex={index}
     />
   ));
 
