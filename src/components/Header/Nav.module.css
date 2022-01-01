@@ -29,6 +29,8 @@ nav {
   color: white;
 }
 .cta:hover,
-.ctaDark:hover {
+.ctaDark:hover,
+.cta:focus,
+.ctaDark:focus {
   color: #0ea5e9;
 }
