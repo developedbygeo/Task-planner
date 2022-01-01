@@ -47,8 +47,8 @@ li {
 }
 
 .shake {
-  -webkit-animation: shake-horizontal 800ms ease-in-out 2 both;
-  animation: shake-horizontal 800ms ease-in-out 2 both;
+  -webkit-animation: shake-horizontal 1s ease-in-out 2 both;
+  animation: shake-horizontal 1s ease-in-out 2 both;
 }
 
 @-webkit-keyframes shake-horizontal {
