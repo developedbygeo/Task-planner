@@ -5,7 +5,15 @@ import Priority from '../UI/Priority/Priority';
 import Card from '../UI/Card/Card';
 import styles from './Task.module.css';
 
-const Task = ({ onClick, completed, title, header, id, description }) => {
+const Task = ({
+  onClick,
+  completed,
+  title,
+  header,
+  id,
+  description,
+  tabIndex,
+}) => {
   const { darkTheme } = useContext(ThemeContext);
   const {
     currentState: { selection },
@@ -23,7 +31,13 @@ const Task = ({ onClick, completed, title, header, id, description }) => {
   }, [selection, id]);
 
   return (
-    <li onClick={onClick} className={styles.li} key={id} title={title}>
+    <li
+      onClick={onClick}
+      className={styles.li}
+      key={id}
+      title={title}
+      tabIndex={tabIndex}
+    >
       <Card
         className={`${styles.elementWrapper} ${
           completed ? styles.completed : ''
