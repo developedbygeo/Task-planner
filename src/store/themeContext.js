@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ThemeContext = React.createContext({
   darkTheme: false,
@@ -6,7 +6,14 @@ const ThemeContext = React.createContext({
 });
 
 export const ThemeContextProvider = ({ children }) => {
-  const [darkThemeEnabled, setDarkThemeEnabled] = useState(false);
+  const preExistingTheme =
+    JSON.parse(localStorage.getItem('taskTrackerDevGeoTheme')) || false;
+
+  const [darkThemeEnabled, setDarkThemeEnabled] = useState(preExistingTheme);
+
+  useEffect(() => {
+    localStorage.setItem('taskTrackerDevGeoTheme', darkThemeEnabled);
+  }, [darkThemeEnabled]);
 
   const themeChangeHandler = () => {
     setDarkThemeEnabled((prevState) => !prevState);
