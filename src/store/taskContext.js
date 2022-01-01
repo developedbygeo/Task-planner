@@ -128,7 +128,6 @@ const TaskAndListProvider = ({ children }) => {
   const [activityState, dispatchActivity] = useReducer(
     activityReducer,
     initializer()
-    // defaultState
   );
 
   useEffect(() => {
