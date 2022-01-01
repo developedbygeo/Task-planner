@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
@@ -30,6 +30,17 @@ const Nav = ({ onAsideEnable }) => {
       searchTask(query);
     }
   };
+
+  useEffect(() => {
+    if (searchStatus) {
+      const searchTimer = setTimeout(() => {
+        searchRef.current.focus();
+      }, 100);
+      return () => {
+        clearTimeout(searchTimer);
+      };
+    }
+  }, [searchStatus]);
 
   return (
     <nav>
