@@ -13,6 +13,7 @@ const Header = ({ onAsideEnable }) => {
           target="_blank"
           rel="noreferrer"
           href="https://www.github.com/developedbygeo"
+          title="My GitHub Profile"
         >
           <h1 className={darkTheme ? styles.darkText : ''}>
             <span className={styles.logo1}>Task</span> Tracker
