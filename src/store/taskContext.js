@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import _ from 'lodash';
 
 export const TaskContext = React.createContext({
@@ -45,11 +45,21 @@ const activityReducer = (state = defaultState, action) => {
         tasksAndLists[activeIndex].tasks.length === 0 &&
         !isCurrentListDefault
       ) {
-        defaultList.selected = true;
-        const updatedLists = tasksAndLists
-          .filter((list) => list.tasks.length !== 0)
-          .concat(defaultList);
-        return { ...updatedState, tasksAndLists: updatedLists };
+        // if no tasks are added, the defaultList has to persist
+        if (defaultList.tasks.length === 0) {
+          defaultList.selected = true;
+          const updatedLists = tasksAndLists
+            .filter((list) => list.tasks.length !== 0)
+            .concat(defaultList);
+          return { ...updatedState, tasksAndLists: updatedLists };
+        } else {
+          // else, it persists either way
+          defaultList.selected = true;
+          const updatedLists = tasksAndLists.filter(
+            (list) => list.tasks.length !== 0
+          );
+          return { ...updatedState, tasksAndLists: updatedLists };
+        }
       }
 
       return { ...updatedState, selection: '' };
@@ -105,10 +115,21 @@ const activityReducer = (state = defaultState, action) => {
 };
 
 const TaskAndListProvider = ({ children }) => {
+  const initializer = (initialValue = defaultState) => {
+    return (
+      JSON.parse(localStorage.getItem('taskTrackerDevGeo')) || initialValue
+    );
+  };
+
   const [activityState, dispatchActivity] = useReducer(
     activityReducer,
-    defaultState
+    initializer()
+    // defaultState
   );
+
+  useEffect(() => {
+    localStorage.setItem('taskTrackerDevGeo', JSON.stringify(activityState));
+  }, [activityState]);
 
   const addTaskHandler = (task) => {
     dispatchActivity({ type: 'ADD_TASK', task: task });
