@@ -24,9 +24,13 @@ const activityReducer = (state = defaultState, action) => {
 
   switch (action.type) {
     case 'ADD_TASK': {
-      const updatedTasks = tasksAndLists
-        .filter((list) => list.selected === true)[0]
-        .tasks.concat(action.task);
+      const updatedTasks = _.orderBy(
+        tasksAndLists
+          .filter((list) => list.selected === true)[0]
+          .tasks.concat(action.task),
+        ['priority', 'task'],
+        'desc'
+      );
       tasksAndLists[activeIndex].tasks = updatedTasks;
       return { ...updatedState };
     }
