@@ -51,7 +51,7 @@ aside ul::-webkit-scrollbar-thumb {
   font-family: 'Lato', sans-serif;
 }
 .title h3 {
-  align-self: flex-end;
+  align-self: center;
 }
 .dark {
   background: #cbd5e1;
@@ -79,6 +79,20 @@ input {
   align-items: center;
   justify-items: center;
 }
+
+/* Media Queries */
+@media only screen and (max-width: 240px) {
+  ul {
+    grid-template-rows: repeat(auto-fill, minmax(25px, 1fr));
+  }
+}
+
+@media only screen and (min-width: 300px) {
+  ul {
+    grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+  }
+}
+/* Keyframes */
 
 @keyframes asideAnimation {
   from {
