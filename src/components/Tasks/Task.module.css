@@ -15,8 +15,8 @@ li:hover {
 }
 
 .elementWrapper {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
   align-items: center;
 }
 .elementWrapper h3 {
@@ -55,6 +55,16 @@ li:hover {
   -webkit-animation: shake-horizontal 1s ease-in-out 2 both;
   animation: shake-horizontal 1s ease-in-out 2 both;
 }
+
+/* Media Queries */
+
+@media only screen and (min-width: 240px) {
+  .elementWrapper {
+    grid-template-columns: 1fr minmax(35px, 0.3fr);
+  }
+}
+
+/* Keyframes */
 
 @-webkit-keyframes shake-horizontal {
   0%,
