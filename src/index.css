@@ -43,6 +43,10 @@ h3 {
 }
 p,
 button,
+label,
+::placeholder,
+select,
+input,
 div,
 li {
   font-size: 1.8rem;
@@ -55,8 +59,24 @@ a {
   color: inherit;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 280px) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media only screen and (min-width: 319px) {
+  html {
+    font-size: 40%;
+  }
+}
+@media only screen and (min-width: 400px) and (max-width: 560px) {
   html {
     font-size: 45%;
+  }
+}
+@media only screen and (min-width: 561px) and (max-width: 800px) {
+  html {
+    font-size: 55%;
   }
 }
