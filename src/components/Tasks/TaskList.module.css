@@ -40,3 +40,14 @@ ul::-webkit-scrollbar-thumb {
 .ulAsideActive {
   width: 65%;
 }
+
+@media only screen and (min-width: 240px) {
+  ul {
+    grid-template-rows: repeat(auto-fill, minmax(20px, 22px));
+  }
+}
+@media only screen and (min-width: 320px) {
+  ul {
+    grid-template-rows: repeat(auto-fill, minmax(20px, 30px));
+  }
+}
