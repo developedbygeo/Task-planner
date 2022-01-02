@@ -16,6 +16,7 @@
   left: 50%;
   height: 10rem;
   width: 9rem;
+  pointer-events: none;
 }
 
 .dark {
@@ -30,6 +31,7 @@
   left: 25%;
   height: 100%;
   width: 35%;
+  pointer-events: none;
 }
 .darkText {
   color: white;
@@ -53,4 +55,17 @@
   font-family: 'Playball', cursive;
   font-size: 4.2rem;
   text-shadow: -4px 0px 0px #0000001c;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 299px) {
+  .header {
+    grid-template-rows: 1fr minmax(15px, 0.2fr);
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .header {
+    grid-template-rows: 1fr minmax(20px, 0.2fr);
+  }
 }
