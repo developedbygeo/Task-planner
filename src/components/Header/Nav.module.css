@@ -9,6 +9,7 @@ nav {
   display: flex;
   gap: 2rem;
   justify-content: flex-end;
+  z-index: 5;
 }
 .aside {
   justify-self: flex-start;
@@ -33,4 +34,13 @@ nav {
 .cta:focus,
 .ctaDark:focus {
   color: #0ea5e9;
+}
+@media only screen and (min-width: 240px) and (max-width: 768px) {
+  .search {
+    width: 50%;
+    border: none;
+  }
+  .search::placeholder {
+    font-size: 1.35rem;
+  }
 }
