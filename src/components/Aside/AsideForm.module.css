@@ -10,3 +10,17 @@
 .asideForm input {
   padding: 0.5rem 2.5rem;
 }
+
+@media only screen and (min-width: 240px) {
+  .asideForm {
+    justify-content: space-around;
+  }
+  .asideForm input {
+    width: 90%;
+    margin-inline: 0;
+    border: none;
+  }
+  .asideForm input::placeholder {
+    font-size: 1.4rem;
+  }
+}
