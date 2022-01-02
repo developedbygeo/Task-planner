@@ -20,7 +20,7 @@ const Aside = ({ onFormReset }) => {
     <aside className={darkTheme ? styles.dark : styles.aside}>
       <div className={styles.container}>
         <Card className={styles.title}>
-          <h3>Current Lists</h3>
+          <h3>Lists</h3>
         </Card>
         <AsideForm onFormReset={onFormReset} />
       </div>
