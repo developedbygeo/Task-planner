@@ -18,9 +18,11 @@ li:hover {
   display: grid;
   grid-template-columns: 1fr 0.3fr;
   align-items: center;
+  height: 100%;
 }
 .elementWrapper h3 {
   padding-inline: 1rem;
+  word-wrap: anywhere;
 }
 .elementWrapper h3::first-letter {
   text-transform: capitalize;
@@ -61,6 +63,11 @@ li:hover {
 @media only screen and (min-width: 240px) {
   .elementWrapper {
     grid-template-columns: 1fr minmax(35px, 0.3fr);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .elementWrapper {
+    padding: 0;
   }
 }
 
