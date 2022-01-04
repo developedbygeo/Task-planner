@@ -9,9 +9,10 @@
 }
 .asideForm input {
   padding: 0.5rem 2.5rem;
+  border: 1px solid #3f3f46;
 }
 
-@media only screen and (min-width: 240px) {
+@media only screen and (min-width: 240px) and (max-width: 768px) {
   .asideForm {
     justify-content: space-around;
   }
