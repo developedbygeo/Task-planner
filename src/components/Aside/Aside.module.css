@@ -86,13 +86,13 @@ input {
 
 /* Media Queries */
 @media only screen and (max-width: 240px) {
-  ul {
+  aside ul {
     grid-template-rows: repeat(auto-fill, minmax(25px, 1fr));
   }
 }
 
 @media only screen and (min-width: 300px) {
-  ul {
+  aside ul {
     grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
   }
 }
@@ -111,8 +111,13 @@ input {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) {
   aside {
     width: 25%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  aside {
+    width: 28%;
   }
 }
