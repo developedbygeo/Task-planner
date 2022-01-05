@@ -76,3 +76,17 @@ section {
 .dark {
   background: #2e2e32;
 }
+
+@media only screen and (min-width: 568px) and (max-width: 700px) and (orientation: landscape) {
+  .actionsWrapper {
+    bottom: 14%;
+    right: 3%;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1024px) and (orientation: landscape) {
+  .actionsWrapper {
+    bottom: 8%;
+    right: 5%;
+  }
+}
