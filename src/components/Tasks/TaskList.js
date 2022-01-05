@@ -30,7 +30,7 @@ const TaskList = ({ isAsideActive }) => {
 
   return (
     <ul
-      className={`${isAsideActive ? styles.ulAsideActive : styles.ul} ${
+      className={`${isAsideActive ? styles.ulAsideActive : ''} ${
         darkTheme ? styles.dark : ''
       }`}
     >
