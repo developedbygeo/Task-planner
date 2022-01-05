@@ -16,6 +16,7 @@ nav {
 }
 .search {
   width: 30%;
+  align-self: center;
 }
 
 .cta,
@@ -35,12 +36,56 @@ nav {
 .ctaDark:focus {
   color: #0ea5e9;
 }
-@media only screen and (min-width: 240px) and (max-width: 768px) {
+@media only screen and (min-width: 240px) and (max-width: 300px) {
   .search {
     width: 50%;
     border: none;
   }
   .search::placeholder {
     font-size: 1.35rem;
+  }
+}
+@media only screen and (min-width: 300px) and (max-height: 700px) {
+  .search {
+    width: 40%;
+    height: 100%;
+    padding: 1.5rem 2rem;
+  }
+}
+@media only screen and (min-width: 300px) and (min-height: 750px) {
+  .search {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 320px) and (orientation: landscape) {
+  .search {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (min-width: 568px) and (max-width: 1025px) and (orientation: landscape) {
+  .search {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 568px) and (max-width: 1025px) and (orientation: landscape) {
+  .search {
+    height: 50%;
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .search {
+    width: 28.5%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .search {
+    width: 25%;
+    height: 100%;
   }
 }
