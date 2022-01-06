@@ -16,8 +16,10 @@ const Aside = ({ onFormReset }) => {
 
   const toggleActiveHandler = (list) => activateList(list);
 
+  const mainClass = darkTheme ? styles.dark : styles.aside;
+
   return (
-    <aside className={darkTheme ? styles.dark : styles.aside}>
+    <aside className={mainClass}>
       <div className={styles.container}>
         <Card className={styles.title}>
           <h3>Lists</h3>
