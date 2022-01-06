@@ -11,12 +11,13 @@ import styles from './AddTask.module.css';
 const AddTask = ({ onFormReset, onMenuDisable, add }) => {
   const { darkTheme } = useContext(ThemeContext);
 
+  const buttonClasses = `${styles.ctaSec} ${
+    darkTheme ? styles.ctaSecDark : ''
+  }`;
+
   const addingLayout = (
     <>
-      <Button
-        onClick={onMenuDisable}
-        className={`${styles.ctaSec} ${darkTheme ? styles.ctaSecDark : null}`}
-      >
+      <Button onClick={onMenuDisable} className={buttonClasses}>
         <FontAwesomeIcon icon={faTimes} />
       </Button>
       <AddTaskForm onFormReset={onFormReset} />
@@ -29,10 +30,11 @@ const AddTask = ({ onFormReset, onMenuDisable, add }) => {
     </>
   );
 
+  const layout = add ? addingLayout : removingLayout;
+
   return (
     <Modal onMenuDisable={onMenuDisable} className={darkTheme && styles.dark}>
-      {add && addingLayout}
-      {!add && removingLayout}
+      {layout}
     </Modal>
   );
 };
