@@ -42,12 +42,14 @@ const Nav = ({ onAsideEnable }) => {
     }
   }, [searchStatus]);
 
+  const buttonClasses = darkTheme ? styles.ctaDark : styles.cta;
+
   return (
     <nav>
       <Button
         onClick={onAsideEnable}
         title="Toggle menu"
-        className={darkTheme ? styles.ctaDark : styles.cta}
+        className={buttonClasses}
       >
         <FontAwesomeIcon icon={faBars} />
       </Button>
@@ -64,12 +66,12 @@ const Nav = ({ onAsideEnable }) => {
           onClick={toggleSearchHandler}
           type="submit"
           title="Search"
-          className={darkTheme ? styles.ctaDark : styles.cta}
+          className={buttonClasses}
         >
           <FontAwesomeIcon icon={faSearch} />
         </Button>
         <Button
-          className={darkTheme ? styles.ctaDark : styles.cta}
+          className={buttonClasses}
           onClick={onThemeChange}
           title={`Change to ${darkTheme ? 'light' : 'dark'} mode`}
         >
