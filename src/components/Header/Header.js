@@ -6,8 +6,11 @@ import styles from './Header.module.css';
 const Header = ({ onAsideEnable }) => {
   const { darkTheme } = useContext(ThemeContext);
 
+  const headerClasses = `${styles.header} ${darkTheme ? styles.dark : ''}`;
+  const h1Classes = darkTheme ? styles.darkText : '';
+
   return (
-    <header className={`${styles.header} ${darkTheme ? styles.dark : ''}`}>
+    <header className={headerClasses}>
       <div className={styles.logoWrapper}>
         <a
           target="_blank"
@@ -15,7 +18,7 @@ const Header = ({ onAsideEnable }) => {
           href="https://www.github.com/developedbygeo"
           title="My GitHub Profile"
         >
-          <h1 className={darkTheme ? styles.darkText : ''}>
+          <h1 className={h1Classes}>
             <span className={styles.logo1}>Task</span> Tracker
           </h1>
         </a>
