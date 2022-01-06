@@ -18,18 +18,20 @@ const Section = ({ children, onMenuEnable, onRemoveMenuEnable }) => {
     ? true
     : false;
 
+  const themeBtnClasses = `${styles.actionBtn} ${
+    darkTheme ? styles.darkBtn : styles.lightBtn
+  } `;
+  const sectionClasses = darkTheme ? styles.dark : styles.section;
+  const actionWrapperClasses = `${styles.actionsWrapper} ${
+    markedTasksExist ? styles.actionsWrapperDel : ''
+  }`;
+
   return (
-    <section className={darkTheme ? styles.dark : styles.section}>
+    <section className={sectionClasses}>
       {children}
-      <div
-        className={`${styles.actionsWrapper} ${
-          markedTasksExist ? styles.actionsWrapperDel : ''
-        }`}
-      >
+      <div className={actionWrapperClasses}>
         <Button
-          className={`${styles.actionBtn} ${styles.add} ${
-            darkTheme ? styles.darkBtn : styles.lightBtn
-          }`}
+          className={`${themeBtnClasses} ${styles.add}`}
           onClick={onMenuEnable}
           title={'Add a new task!'}
         >
@@ -38,9 +40,7 @@ const Section = ({ children, onMenuEnable, onRemoveMenuEnable }) => {
         {markedTasksExist && (
           <Button
             onClick={onRemoveMenuEnable}
-            className={`${styles.actionBtn} ${styles.delete} ${
-              darkTheme ? styles.darkBtn : styles.lightBtn
-            }`}
+            className={`${themeBtnClasses} ${styles.delete}`}
           >
             <FontAwesomeIcon icon={faTrash} />
           </Button>
