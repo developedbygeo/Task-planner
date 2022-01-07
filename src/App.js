@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Aside from './components/Aside/Aside';
 import Section from './components/Section/Section';
 import TaskList from './components/Tasks/TaskList';
-import AddTask from './components/Tasks/AddTask';
+import ModalDialogue from './components/Tasks/AddTask';
 
 function App() {
   const ctx = useContext(ThemeContext);
@@ -41,14 +41,14 @@ function App() {
     <>
       <TaskAndListProvider>
         {isAddMenuEnabled && (
-          <AddTask
+          <ModalDialogue
             add={true}
             onFormReset={resetFields}
             onMenuDisable={MenuDisableHandler}
           />
         )}
         {isDeleteMenuEnabled && (
-          <AddTask add={false} onMenuDisable={MenuDisableHandler} />
+          <ModalDialogue add={false} onMenuDisable={MenuDisableHandler} />
         )}
         <Header
           onThemeSelection={ctx.onThemeChange}
