@@ -1,5 +1,7 @@
 # Task Tracker
 
+<img src='./public/sample.jpg' width='600px' />
+
 A React-based, fully responsive task tracker. It saves any data provided in localStorage, along with the selected theme, and arranges the tasks in a descending order based on priority.
 
 ## Installation
