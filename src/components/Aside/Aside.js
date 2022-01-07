@@ -26,16 +26,18 @@ const Aside = ({ onFormReset }) => {
         </Card>
         <AsideForm onFormReset={onFormReset} />
       </div>
-      <ul>
-        {allLists.map((list) => (
-          <List
-            onClick={toggleActiveHandler.bind(null, list)}
-            title={list.list}
-            selected={list.selected}
-            key={_.uniqueId()}
-          />
-        ))}
-      </ul>
+      <div className={styles.ulWrapper}>
+        <ul>
+          {allLists.map((list) => (
+            <List
+              onClick={toggleActiveHandler.bind(null, list)}
+              title={list.list}
+              selected={list.selected}
+              key={_.uniqueId()}
+            />
+          ))}
+        </ul>
+      </div>
     </aside>
   );
 };

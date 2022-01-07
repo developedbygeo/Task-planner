@@ -24,12 +24,22 @@ aside button:hover {
   color: #0ea5e9;
 }
 aside ul {
-  overflow-y: scroll;
+  overflow-y: auto;
+  align-self: center;
+  height: calc(80vh - 200px);
+  margin: auto;
   scrollbar-width: 16px;
-  scrollbar-color: #0ea4e98a #dad8d8;
+  scrollbar-color: #1740538a #dad8d8;
   gap: 2rem;
   grid-template-rows: auto;
 }
+
+.ulWrapper {
+  height: 90%;
+  width: 100%;
+  margin: auto;
+}
+
 aside ul::-webkit-scrollbar {
   width: 16px;
 }
@@ -41,10 +51,11 @@ aside ul::-webkit-scrollbar-track {
   border-radius: 2rem;
 }
 aside ul::-webkit-scrollbar-thumb {
-  background-color: #0ea4e98a;
+  background-color: #1740538a;
   border-radius: 2rem;
   border: 4px solid #dad8d8;
 }
+
 aside li {
   height: 100%;
 }
@@ -110,12 +121,18 @@ input {
     top: 25%;
     width: 20%;
   }
+  aside ul {
+    height: calc(100vh - 200px);
+  }
 }
 
 @media only screen and (min-width: 700px) and (max-width: 1024px) and (orientation: landscape) {
   aside {
     top: 20%;
     width: 20%;
+  }
+  aside ul {
+    height: calc(98vh - 200px);
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 950px) and (orientation: portrait) {
@@ -126,7 +143,7 @@ input {
 
 @media only screen and (min-width: 1024px) {
   aside {
-    width: 28%;
+    width: 23%;
   }
 }
 
