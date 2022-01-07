@@ -12,6 +12,18 @@
   border: 1px solid #3f3f46;
 }
 
+.errorWrapper {
+  width: 95%;
+  height: 90%;
+  margin: auto;
+}
+
+.error {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
 @media only screen and (min-width: 240px) and (max-width: 768px) {
   .asideForm {
     justify-content: space-around;
