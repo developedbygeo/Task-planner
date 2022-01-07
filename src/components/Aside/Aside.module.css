@@ -116,6 +116,13 @@ input {
   }
 }
 /* Mobile Landscape */
+
+@media only screen and (max-width: 400px) and (orientation: landscape) {
+  aside ul {
+    height: calc(100vh - 130px);
+  }
+}
+
 @media only screen and (min-width: 568px) and (max-width: 700px) and (orientation: landscape) {
   aside {
     top: 25%;
