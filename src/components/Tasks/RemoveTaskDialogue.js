@@ -12,6 +12,7 @@ const RemoveTaskDialogue = ({ onRemoveMenuDisable }) => {
   } = useContext(TaskContext);
 
   const activeList = allLists.find((list) => list.selected === true);
+  const isDefault = activeList.list === 'default' ? true : false;
 
   const tasksToBeRemoved = activeList.tasks.filter(
     (task) => task.completed === true
@@ -27,7 +28,7 @@ const RemoveTaskDialogue = ({ onRemoveMenuDisable }) => {
   const tasksSpan = numberOfDelTasks > 1 ? 'tasks' : 'task';
 
   const listDeletionWarning =
-    activeList.tasks.length === numberOfDelTasks ? (
+    activeList.tasks.length === numberOfDelTasks && !isDefault ? (
       <span>
         <br />
         The list will also be <b>deleted</b>.
