@@ -96,9 +96,13 @@ input {
 }
 
 /* Media Queries */
+
+/* Mobile */
+
 @media only screen and (max-width: 240px) {
   aside ul {
     grid-template-rows: repeat(auto-fill, minmax(25px, 1fr));
+    height: calc(90vh - 130px);
   }
 }
 
@@ -108,7 +112,11 @@ input {
   }
 }
 
-/* Mobile */
+@media only screen and (max-width: 320px) {
+  aside ul {
+    height: calc(85vh - 130px);
+  }
+}
 
 @media only screen and (max-width: 450px) {
   aside {
