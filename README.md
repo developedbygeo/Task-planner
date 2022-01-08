@@ -1,8 +1,8 @@
-# Task Tracker
+# Task Planner
 
-<img src='./public/sample.jpg' width='600px' />
+<img src='./public/sample.jpg' width='800px' />
 
-A React-based, fully responsive task tracker. It saves any data provided in localStorage, along with the selected theme, and arranges the tasks in a descending order based on priority.
+A React-based, fully responsive task tracker. It saves any data provided in localStorage, along with the selected theme, and arranges the tasks in a descending order based on priority. Lists are _deleted_ as soon as their last existing task is deleted.
 
 ## Installation
 
@@ -43,7 +43,7 @@ For a more detailed overview of the development & production dependencies, pleas
 
 ## Live Version
 
-<https://developedbygeo.github.io/Task-tracker/>
+<https://developedbygeo.github.io/Task-tracker-v2/>
 
 ## Contributing
 
