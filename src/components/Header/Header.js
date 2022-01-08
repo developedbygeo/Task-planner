@@ -19,7 +19,7 @@ const Header = ({ onAsideEnable }) => {
           title="My GitHub Profile"
         >
           <h1 className={h1Classes}>
-            <span className={styles.logo1}>Task</span> Tracker
+            <span className={styles.logo1}>Task</span> Planner
           </h1>
         </a>
       </div>
