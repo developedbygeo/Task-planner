@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Task-planner/static/css/main.3c245c87.chunk.css",
+    "main.js": "/Task-planner/static/js/main.ddc89bb4.chunk.js",
+    "main.js.map": "/Task-planner/static/js/main.ddc89bb4.chunk.js.map",
+    "runtime-main.js": "/Task-planner/static/js/runtime-main.1683646c.js",
+    "runtime-main.js.map": "/Task-planner/static/js/runtime-main.1683646c.js.map",
+    "static/js/2.a4611096.chunk.js": "/Task-planner/static/js/2.a4611096.chunk.js",
+    "static/js/2.a4611096.chunk.js.map": "/Task-planner/static/js/2.a4611096.chunk.js.map",
+    "index.html": "/Task-planner/index.html",
+    "static/css/main.3c245c87.chunk.css.map": "/Task-planner/static/css/main.3c245c87.chunk.css.map",
+    "static/js/2.a4611096.chunk.js.LICENSE.txt": "/Task-planner/static/js/2.a4611096.chunk.js.LICENSE.txt",
+    "static/media/Header.module.css": "/Task-planner/static/media/stars.08c34754.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1683646c.js",
+    "static/js/2.a4611096.chunk.js",
+    "static/css/main.3c245c87.chunk.css",
+    "static/js/main.ddc89bb4.chunk.js"
+  ]
+}
