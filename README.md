@@ -43,7 +43,7 @@ For a more detailed overview of the development & production dependencies, pleas
 
 ## Live Version
 
-<https://developedbygeo.github.io/Task-tracker-v2/>
+<https://developedbygeo.github.io/Task-planner/>
 
 ## Contributing
 
